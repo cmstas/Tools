@@ -5,7 +5,7 @@
 
 class FactorizedJetCorrector *makeJetCorrector (const std::vector<std::string> &corrs)
 {
-    vector<JetCorrectorParameters> vParam;
+    std::vector<JetCorrectorParameters> vParam;
     for (std::vector<std::string>::const_iterator i = corrs.begin(), i_end = corrs.end();
          i != i_end; ++i) {
         // do some rigmarole to evaluate env variables in the strings
