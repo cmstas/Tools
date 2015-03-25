@@ -3,7 +3,9 @@
 /*              Finding mt2 by Bisection                               */
 /*                                                                     */
 /*              Authors: Hsin-Chia Cheng, Zhenyu Han                   */ 
-/*              Dec 11, 2008, v1.01a                                     */
+/*              Dec 11, 2008, v1.01a                                   */
+/*                                                                     */  
+/*              See arXiv:0810.5178 for explanation                    */  
 /*                                                                     */  
 /***********************************************************************/
 
