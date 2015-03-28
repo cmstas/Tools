@@ -12,8 +12,10 @@ using namespace std;
 
 int plotAll(){
 
-  TFile *file = new TFile("/hadoop/cms/store/group/snt/phys14/TTJets_MSDecaysCKM_central_Tune4C_13TeV-madgraph-tauola_Phys14DR-PU20bx25_PHYS14_25_V1-v1/V07-02-06/merged_ntuple_3.root");
+  TFile *file = new TFile("/hadoop/cms/store/group/snt/phys14/TTJets_MSDecaysCKM_central_Tune4C_13TeV-madgraph-tauola_Phys14DR-PU20bx25_PHYS14_25_V1-v1/V07-02-07/merged_ntuple_4.root");
   TTree *tree = (TTree*)file->Get("Events");
+
+  int nEntries = tree->GetEntries();
 
   TList *t_list = tree->GetListOfAliases();
 
@@ -31,7 +33,7 @@ int plotAll(){
  
     //Don't support vectors of vectors
     if(branchname.BeginsWith("intss") || branchname.BeginsWith("floatss") || branchname.BeginsWith("doubless") || branchname.Contains("LorentzVectorss") || branchname.Contains("timestamp") ){
-      cout << "Sorry, I dont know about vector of vectors of objects, will be skipping " << aliasname << endl;
+      cout << "Sorry, I dont support vector of vectors of objects, will be skipping " << aliasname << endl;
       continue;
     }
 
@@ -44,12 +46,18 @@ int plotAll(){
     TString histname = "hist_" + aliasname + ".pdf";
     TH1F* null = new TH1F("","",1,0,1);
     command.Append(">>hist");
-    tree->Draw(command.Data());
+    tree->Draw(command.Data(), (aliasname)+"!=-9999 &&"+(aliasname)+"!=-999");
     TH1F *hist = (TH1F*)gDirectory->Get("hist");
+    if (hist->Integral() == 0) tree->Draw(command.Data());
+    hist = (TH1F*)gDirectory->Get("hist");
     vector <TH1F*> hists; 
     hists.push_back(hist);
     vector <char*> titles;
     titles.push_back("");
+
+    //Overflow and Underflow
+    hist->SetBinContent(1, hist->GetBinContent(1)+hist->GetBinContent(0)+(nEntries-hist->Integral()));
+    hist->SetBinContent(hist->GetNbinsX(), hist->GetBinContent(hist->GetNbinsX())+hist->GetBinContent(hist->GetNbinsX()+1));
 
     if (hist->GetXaxis()->GetXmax() == hist->GetXaxis()->GetXmin()){
       ofstream myfile;

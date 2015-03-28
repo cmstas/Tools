@@ -29,8 +29,7 @@ double HemMT2(
   const float,
   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<float> >,
   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<float> >,
-  float = 0.0,
-  bool = false
+  float = 0.0
 );
 
 // MT2 declaration

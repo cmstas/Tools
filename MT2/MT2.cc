@@ -23,8 +23,7 @@ double HemMT2(
   const float metPhi,
   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<float> > v1,
   const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<float> > v2,
-  float invisible_particle_mass,
-  bool verbose
+  float invisible_particle_mass
 ){
 
 //--- code here follows documentation in MT2Utility.cc ---//
