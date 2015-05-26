@@ -12,7 +12,7 @@ using namespace std;
 
 int plotAll(){
 
-  TFile *file = new TFile("/hadoop/cms/store/group/snt/phys14/TTJets_MSDecaysCKM_central_Tune4C_13TeV-madgraph-tauola_Phys14DR-PU20bx25_PHYS14_25_V1-v1/V07-02-07/merged_ntuple_4.root");
+  TFile *file = new TFile("/hadoop/cms/store/group/snt/phys14/TTJets_MSDecaysCKM_central_Tune4C_13TeV-madgraph-tauola_Phys14DR-PU20bx25_PHYS14_25_V1-v1/V07-02-08/merged_ntuple_4.root");
   TTree *tree = (TTree*)file->Get("Events");
 
   int nEntries = tree->GetEntries();
@@ -52,9 +52,9 @@ int plotAll(){
     hist = (TH1F*)gDirectory->Get("hist");
     vector <TH1F*> hists; 
     hists.push_back(hist);
-    vector <char*> titles;
+    vector <string> titles;
     titles.push_back("");
-
+  
     //Overflow and Underflow
     hist->SetBinContent(1, hist->GetBinContent(1)+hist->GetBinContent(0)+(nEntries-hist->Integral()));
     hist->SetBinContent(hist->GetNbinsX(), hist->GetBinContent(hist->GetNbinsX())+hist->GetBinContent(hist->GetNbinsX()+1));
@@ -68,7 +68,10 @@ int plotAll(){
 
     float max = hist->GetMaximum()*100;
 
-    dataMCplotMaker(null, hists, titles, aliasname.Data(), "CMS3 2.06 Validation", Form("--outputName %s --noFill --noLegend --setMaximum %f --energy 13 --lumi 0 --xAxisLabel %s --noXaxisUnit --noDivisionLabel", histname.Data(), max, histname.Data())); 
+    string subtitle = aliasname.Data();
+    string histname2 = histname.Data(); 
+
+    dataMCplotMaker(null, hists, titles, subtitle, "CMS3 2.06 Validation", Form("--outputName %s --noFill --noLegend --setMaximum %f --energy 13 --lumi 0 --xAxisLabel %s --noXaxisUnit --noDivisionLabel", subtitle.c_str(), max, histname2.c_str())); 
 
     delete hist;
 
