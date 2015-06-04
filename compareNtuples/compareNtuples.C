@@ -56,15 +56,13 @@ vector<TString> getAliasNames(TTree *t) {
        branchname.Contains("LorentzVectorss") ||
        branchname.Contains("timestamp") ) {
       
-      cout << "Sorry, I dont know about vector of vectors of objects. " 
-	   << "Will be skipping " << aliasname << endl;
+      cout << "Sorry, I dont know about vector of vectors of objects. " << "Will be skipping " << aliasname << endl;
       
       continue;
     }
 
     if(branchname.Contains("TString") ) {
-      cout << "Sorry, I don't know how to graphically represent TStrings in only 3 dimensions" 
-	   << " Put in a feature request. Will be skipping " << aliasname << endl;
+      cout << "Sorry, I don't know how to graphically represent TStrings in only 3 dimensions" << " Put in a feature request. Will be skipping " << aliasname << endl;
       continue;
     }
     v_aliasnames.push_back(aliasname);
@@ -93,13 +91,11 @@ bool areHistosTheSame(TH1F* h1, TH1F* h2) {
       return false;
   }
   
-  
   return true;
 }
 //-----------------------------------------------------------------------
 
-vector<TString> getUncommonBranches(vector<TString> aliasnames, 
-				    vector<TString> v_commonBranches) {
+vector<TString> getUncommonBranches(vector<TString> aliasnames, vector<TString> v_commonBranches) {
   
   vector<TString>  v_notCommonBranches;
   for(vector<TString>::iterator it = aliasnames.begin();
@@ -116,11 +112,10 @@ vector<TString> getUncommonBranches(vector<TString> aliasnames,
 }
 
 //-----------------------------------------------------------------------
-
-void compareNtuples(TString file1, TString file2, bool doNotSaveSameHistos="true", bool drawWithErrors="true",
-		    double ksMinThreshold = 0.001) {
+void compareNtuples(TString file1, TString file2, bool doNotSaveSameHistos="true", bool drawWithErrors="true", double ksMinThreshold = 0.001) {
   
   //TDirectory *rootdir = gDirectory->GetDirectory("Rint:");
+  cout << "Starting" << endl;
   
   TFile *f1 = TFile::Open(file1.Data(), "READ");
   if(f1 == NULL) {
@@ -173,15 +168,11 @@ void compareNtuples(TString file1, TString file2, bool doNotSaveSameHistos="true
   vector<TString> v1_notCommonBranches;
   vector<TString> v2_notCommonBranches;
   
-  for(vector<TString>::iterator it = t1_aliasnames.begin(); 
-      it != t1_aliasnames.end(); it++) {
-    
-    if(find(t2_aliasnames.begin(), t2_aliasnames.end(), *it) != t2_aliasnames.end())
-      v_commonBranches.push_back(*it);
+  for(vector<TString>::iterator it = t1_aliasnames.begin(); it != t1_aliasnames.end(); it++) {
+    if(find(t2_aliasnames.begin(), t2_aliasnames.end(), *it) != t2_aliasnames.end()) v_commonBranches.push_back(*it);
   }
 
-  //figure out which branches are not common so you can output their names 
-  //and draw them last
+  //figure out which branches are not common so you can output their names and draw them last
   v1_notCommonBranches = getUncommonBranches(t1_aliasnames, v_commonBranches);
   v2_notCommonBranches = getUncommonBranches(t2_aliasnames, v_commonBranches);
 
@@ -189,11 +180,18 @@ void compareNtuples(TString file1, TString file2, bool doNotSaveSameHistos="true
 
   int nEntries = min(tree1->GetEntries(), tree2->GetEntries()); 
 
-  //for(unsigned int i = 0; i < v1_notCommonBranches.size(); i++) {
-  for(unsigned int i = 0; i < 10; i++) {
-    
+  ofstream myfile; 
+  myfile.open("overview.tex"); 
+  myfile << "\\documentclass{article}" << endl
+         << "\\usepackage{fullpage}" << endl
+         << "\\begin{document}" << endl
+         << "The following were found in OLD but not in NEW:" << endl 
+         << "\\begin{itemize}" << endl;
+  for(unsigned int i = 0; i < v1_notCommonBranches.size(); i++) {
+
     TString alias = v1_notCommonBranches.at(i);
-    if (nEntries != 0) cout << "Branch: " << alias << " was found in " << file1 << " but not in " << file2 << endl;
+    //if (nEntries != 0) cout << "Branch: " << alias << " was found in " << file1 << " but not in " << file2 << endl;
+    if (nEntries != 0) myfile << "\\item " << alias << endl;
     TString histname = "h1_"+(alias);
     TString command  = (alias) + ">>" + histname;
     TBranch *branch = tree1->GetBranch(tree1->GetAlias(alias));
@@ -233,7 +231,7 @@ void compareNtuples(TString file1, TString file2, bool doNotSaveSameHistos="true
     c1->Print("hist.pdf"); 
     c1->SaveAs("diff.ps(");
     c1->SetLogy();
-    
+
     //if the canvas has been divided, want to set the logy
     for(int ii = 0; ii < c1->GetListOfPrimitives()->GetSize(); ii++) {
       if(string(c1->GetListOfPrimitives()->At(ii)->ClassName()) != "TVirtualPad") continue;
@@ -243,11 +241,15 @@ void compareNtuples(TString file1, TString file2, bool doNotSaveSameHistos="true
     c1->SaveAs("diff.ps(");
     c1->SetLogy(0);
   }
+  myfile << "\\end{itemize}" << endl
+         << "The following were found in NEW but not in OLD:" << endl 
+         << "\\begin{itemize}" << endl;
 
   for(unsigned int i = 0; i < v2_notCommonBranches.size(); i++) {
     
     TString alias = v2_notCommonBranches.at(i);
-    if (nEntries != 0) cout << "Branch: " << alias << " was found in " << file1 << " but not in " << file2 << endl;
+    //if (nEntries != 0) cout << "Branch: " << alias << " was found in " << file1 << " but not in " << file2 << endl;
+    if (nEntries != 0) myfile << "\\item " << alias << endl;
     TString histname = "h2_"+(alias);
     TString command  = (alias) + ">>" + histname;
     TBranch *branch = tree2->GetBranch(tree2->GetAlias(alias));
@@ -298,9 +300,8 @@ void compareNtuples(TString file1, TString file2, bool doNotSaveSameHistos="true
     c1->SaveAs("diff.ps(");
     c1->SetLogy(0);
   }
-
-
-
+  myfile << "\\end{itemize}" << endl
+         << "\\end{document}" << endl;
 
   for(unsigned int i =  0; i < v_commonBranches.size(); i++) {
         
@@ -525,7 +526,8 @@ void compareNtuples(TString file1, TString file2, bool doNotSaveSameHistos="true
     }
     c1->SaveAs("diff.ps(");
     c1->SetLogy(0);
-      } else {
+      } 
+    else {
     cout << "done" << endl;
     c1->SaveAs("diff.ps(");
     c1->SetLogy();
@@ -544,4 +546,3 @@ void compareNtuples(TString file1, TString file2, bool doNotSaveSameHistos="true
    
   //c1->SaveAs("diff.ps)");  
 }
-  
