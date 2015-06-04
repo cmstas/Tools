@@ -8,4 +8,4 @@ Note: this may require some maintenance before it works!!
 1. In do.C, put the OLD SAMPLE on line 5 and the NEW sample on line 5.  You should also decide if you want to do force it to draw even the identical histograms (arg3, true/false) and if you want error bars (arg4, true/false).
 2. root do.C
 3. ". process.sh"
-4.  Now diff.pdf has everything you need.  
+4.  Now results.pdf has everything you need.  
