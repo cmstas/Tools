@@ -278,7 +278,6 @@ void compareNtuples(TString file1, TString file2, bool doNotSaveSameHistos="true
     
     if(!drawWithErrors) {
       h2->SetLineColor(kRed);
-      h2->SetLineStyle(7);
     } else {
       h2->SetMarkerSize(1.1);
       h2->SetMarkerStyle(8);
@@ -402,7 +401,6 @@ void compareNtuples(TString file1, TString file2, bool doNotSaveSameHistos="true
     h1->SetMarkerSize(1.1);
     h1->SetMarkerStyle(3);
     h2->SetLineColor(kRed);
-    h2->SetLineStyle(7);
     c1->cd(1);
     h1->Draw();
     c1->cd(2);
@@ -464,7 +462,6 @@ void compareNtuples(TString file1, TString file2, bool doNotSaveSameHistos="true
       h1->SetMarkerSize(1.1);
       h1->SetMarkerStyle(3);
       h2->SetLineColor(kRed);
-      h2->SetLineStyle(7);
       h2->Draw();
       h1->Draw("samesh*");
     } else {
@@ -488,7 +485,6 @@ void compareNtuples(TString file1, TString file2, bool doNotSaveSameHistos="true
       h1->SetMarkerSize(1.1);
       h1->SetMarkerStyle(3);
       h2->SetLineColor(kRed);
-      h2->SetLineStyle(7);
       TString histtitle = fname1+" (black) " + fname2 + " (red)";
       h2->SetTitle(histtitle.Data());
       h1->SetTitle(histtitle.Data());
