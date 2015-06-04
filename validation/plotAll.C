@@ -56,7 +56,7 @@ int plotAll(){
     titles.push_back("");
   
     //Overflow and Underflow
-    hist->SetBinContent(1, hist->GetBinContent(1)+hist->GetBinContent(0)+(nEntries-hist->Integral()));
+    hist->SetBinContent(1, hist->GetBinContent(1)+hist->GetBinContent(0));
     hist->SetBinContent(hist->GetNbinsX(), hist->GetBinContent(hist->GetNbinsX())+hist->GetBinContent(hist->GetNbinsX()+1));
 
     if (hist->GetXaxis()->GetXmax() == hist->GetXaxis()->GetXmin()){
@@ -71,7 +71,7 @@ int plotAll(){
     string subtitle = aliasname.Data();
     string histname2 = histname.Data(); 
 
-    dataMCplotMaker(null, hists, titles, subtitle, "CMS3 2.06 Validation", Form("--outputName %s --noFill --noLegend --setMaximum %f --energy 13 --lumi 0 --xAxisLabel %s --noXaxisUnit --noDivisionLabel", subtitle.c_str(), max, histname2.c_str())); 
+    dataMCplotMaker(null, hists, titles, subtitle, "CMS3 4.02 Validation", Form("--outputName %s --noFill --noLegend --setMaximum %f --energy 13 --lumi 0 --xAxisLabel %s --noXaxisUnit --noDivisionLabel", subtitle.c_str(), max, histname2.c_str())); 
 
     delete hist;
 
