@@ -1,0 +1,152 @@
+<?php xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Index of /delgado_andrea/CMS_JEC/74X_PY8_RunIISpring15DR74_bx50/txts/</title>
+				<style type="text/css">
+		
+			/*** COLORS ***/
+						body.snif {
+				background: #ffffff;             /* background behind table */
+			}
+			table.snif {
+				border: 1px solid #444444;       /* main table border style */
+			}
+			td.snDir {
+				color: #ffffff;                  /* table header text color */
+				background-color: #000000;       /* table header background color */
+			}
+			td.snDir a {
+				color:white;                     /* link text color within table header */
+			}
+			tr.snHeading, td.snHeading, td.snHeading a {
+				color: #dddddd;                  /* column headings text color */
+				background-color: #444444;       /* column headings background color */
+			}
+			tr.snF td a {
+				color: #000000;                  /* file listing link text color (filename)*/
+			}
+			tr.snF td a:hover, a.snif:hover {
+				background-color: #bbbbee;       /* file listing link hover background color */
+			}
+			tr.snEven {
+				background-color: #eeeeee;       /* file listing background color for even numbered rows */
+			}
+			tr.snOdd {
+				background-color: #dddddd;       /* file listing background color for odd numbered rows */
+			}
+			tr.snF td {
+				color: #444444;                  /* file listing text color */
+			}
+			.snCopyright * {
+				color: #bbbbbb;                  /* copyright notice text color */
+			}
+			.snWhite {
+				color: white;                    /* active page in paging header */
+			}
+						
+			/*** FONTS ***/
+			.snif * {
+				font-family: Tahoma, Sans-Serif;
+				font-size: 10pt;
+			}
+			.snif a, a.snif {
+				text-decoration: none;
+			}
+			.snif a:hover, a.snif:hover {
+				text-decoration: underline;
+			}
+			.snCopyright * {
+				font-size: 8pt;
+			}
+			.snifSmaller {
+				font-weight: normal;
+				font-size: 8pt;
+			}
+			td.snDir {
+				font-weight: bold;
+			}
+			tr.snHeading, td.snHeading, td.snHeading a {
+				font-weight: bold;
+			}
+			
+			
+			/*** MARGINS AND POSITIONS ***/
+			table.snif {
+				width:100%;			}
+			table.snif td {
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+			table.snif td.littlepadding {
+				padding-left: 4px;
+				padding-right: 0px;
+			}
+			td.snDir {
+				padding-top: 3px;
+				padding-bottom: 3px;
+			}
+			tr.snHeading, td.snHeading, td.snHeading a {
+				padding-top: 3px;
+				padding-bottom: 3px;
+			}
+			tr.snF td {
+				padding-top: 2px;
+				padding-bottom: 2px;
+				vertical-align: top;
+				padding-left: 10px;
+				padding-right: 10px;
+				white-space: nowrap;
+			}
+			.snif img {
+				border:none;
+			}
+			.snW {
+				white-space: normal;
+			}
+		</style>
+	</head>
+<body class="snif">
+<b style="color:red">PY8_RunIISpring15DR74_bx50_MC_txts_fromDB/PY8_RunIISpring15DR74_bx50_MC_L2Relative_AK4PFchs.txt is not a subdirectory of the current directory.</b><br/><br/><table cellpadding="0" cellspacing="0" class="snif">
+	<tr>
+		<td class="snDir" colspan="7">
+			http://people.physics.tamu.edu/delgado_andrea/CMS_JEC/74X_PY8_RunIISpring15DR74_bx50/<a href="/delgado_andrea/CMS_JEC/74X_PY8_RunIISpring15DR74_bx50/txts/">txts</a><br/>
+			<span class="snifSmaller"></span>
+		</td>
+	</tr>
+		<tr class="snHeading">
+							<td class="snHeading littlepadding">&nbsp;</td>
+										<td class="snHeading littlepadding">&nbsp;</td>
+										<td class="snHeading">
+						<!--<img src="?getimage=blank" alt="" width="30" height="16" style="vertical-align:middle;"/>--><a href="/delgado_andrea/CMS_JEC/74X_PY8_RunIISpring15DR74_bx50/txts/index.php?sort=name&amp;order=desc">name</a>
+						<img src="/delgado_andrea/CMS_JEC/74X_PY8_RunIISpring15DR74_bx50/txts/index.php?getimage=asc" width="5" height="3" style="vertical-align:middle;" alt="asc"/>					</td>
+										<td class="snHeading">
+						<a href="/delgado_andrea/CMS_JEC/74X_PY8_RunIISpring15DR74_bx50/txts/index.php?sort=type">type</a>
+											</td>
+										<td class="snHeading" align="right">
+												<a href="/delgado_andrea/CMS_JEC/74X_PY8_RunIISpring15DR74_bx50/txts/index.php?sort=size">size</a>
+					</td>
+										<td class="snHeading">
+						<a href="/delgado_andrea/CMS_JEC/74X_PY8_RunIISpring15DR74_bx50/txts/index.php?sort=date">date</a>
+											</td>
+										<td class="snHeading">description</td>
+						</tr>
+		<tr class="snF snEven">
+		<td class="littlepadding">						<img src="?getimage=blank" alt="" width="7" height="16" style="vertical-align:middle;"/>
+					</td><td class="littlepadding">					<a href="/delgado_andrea/CMS_JEC/74X_PY8_RunIISpring15DR74_bx50/txts/index.php?path=PY8_RunIISpring15DR74_bx50_MC_txts_fromDB/" title="PY8_RunIISpring15DR74_bx50_MC_txts_fromDB"><img src="/delgado_andrea/CMS_JEC/74X_PY8_RunIISpring15DR74_bx50/txts/index.php?getimage=folder" alt="" title="folder" width="16" height="16" style="vertical-align:middle;"/></a>
+					</td><td><a href="/delgado_andrea/CMS_JEC/74X_PY8_RunIISpring15DR74_bx50/txts/index.php?path=PY8_RunIISpring15DR74_bx50_MC_txts_fromDB/" title="PY8_RunIISpring15DR74_bx50_MC_txts_fromDB">PY8_RunIISpring15DR74_bx50_MC_txts_fromDB&nbsp;</a></td><td>&lt;DIR&gt;</td><td align="right">12 items</td><td><span title="Wed, 01 Jul 2015 14:10:54 -0500">01-07-15</span></td><td class="snW" style="white-space: normal;">
+															</td>	</tr>	<tr class="snF snOdd">
+		<td class="littlepadding">						<a href="?path=&amp;download=PY8_RunIISpring15DR74_bx50_MC.db"><img src="/delgado_andrea/CMS_JEC/74X_PY8_RunIISpring15DR74_bx50/txts/index.php?getimage=download" alt="download" title="download" width="7" height="16" style="vertical-align:middle;"/></a>
+					</td><td class="littlepadding">					<a href="PY8_RunIISpring15DR74_bx50_MC.db" title="PY8_RunIISpring15DR74_bx50_MC.db"><img src="/delgado_andrea/CMS_JEC/74X_PY8_RunIISpring15DR74_bx50/txts/index.php?getimage=unknown" alt="" title="unknown" width="16" height="16" style="vertical-align:middle;"/></a>
+					</td><td><a href="PY8_RunIISpring15DR74_bx50_MC.db" title="PY8_RunIISpring15DR74_bx50_MC.db">PY8_RunIISpring15DR74_bx50_MC.db&nbsp;</a></td><td>db</td><td align="right">	<span title="51,200 Bytes">50.0&nbsp;KB  </span></td><td><span title="Wed, 01 Jul 2015 14:09:18 -0500">01-07-15</span></td><td class="snW" style="white-space: normal;">
+															</td>	</tr></table>
+<div class="snCopyright">
+<br/>
+<a href="http://www.bitfolge.de/snif">
+snif 1.5.2
+&copy; 2003-04 Kai Blankenhorn</a><br/>
+<a href="http://validator.w3.org/check/referer">valid XHTML 1.1</a>
+<a href="http://jigsaw.w3.org/css-validator/check/referer">valid CSS 2</a>
+</div>
+</body>
+</html>
